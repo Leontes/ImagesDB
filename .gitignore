@@ -1,5 +1,8 @@
-# Object file
-*.o
-
-# Ada Library Information
-*.ali
+*~
+*.#
+*.pyc
+*.cer
+*.pem
+.vagrant
+CertificadosImagesDB
+variables.sh
