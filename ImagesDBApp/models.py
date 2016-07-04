@@ -12,8 +12,8 @@ class Usuario(models.Model):
 		return self.nombre
 
 class Imagen(models.Model):
-    dueño = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     url_img = models.URLField()
 
     def __unicode__(self):
-        return self.dueño.nombre
+        return self.usuario.nombre

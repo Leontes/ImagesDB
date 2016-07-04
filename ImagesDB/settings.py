@@ -50,7 +50,7 @@ INSTALLED_APPS = (
     #Registro
     'registration',
     #Mi aplicacion
-    #'ImagesDBApp',
+    'ImagesDBApp',
 )
 
 MIDDLEWARE_CLASSES = (
