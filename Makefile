@@ -14,6 +14,7 @@ install:
 	sudo apt-get install -y libwebp-dev
 	sudo apt-get install -y python-pip
 	sudo pip install -r requirements.txt
+	sudo pip install --upgrade -r  requirements.txt
 
 light_Install:
 	sudo pip install -r requirements.txt
