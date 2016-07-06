@@ -1,8 +1,8 @@
 from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import render
-from .forms import RegistroForm, ContactoForm
-from .models import Registro
+from .forms import UsuarioForm
+from .models import Usuario
 
 
 # Create your views here.
@@ -17,7 +17,7 @@ def home(request):
 	titulo = 'Bienvenido'
 
 	#Declaracion form
-	form =  RegistroForm(request.POST or None)
+	form =  UsuarioForm(request.POST or None)
 
 	contexto = {
 		"template_title": titulo,
@@ -39,7 +39,7 @@ def home(request):
 		}
 
 	if request.user.is_authenticated() and request.user.is_staff:
-		queryset = Registro.objects.all().order_by('-fecha_registro')
+		queryset = Usuario.objects.all().order_by('-fecha_Usuario')
 		contexto = {
 			"queryset": queryset
 		}
