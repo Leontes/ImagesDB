@@ -80,13 +80,13 @@ El código del Makefile es el siguiente:
 
 Las opciones que contiene el archivo son las siguientes:
 
-- [] Instalación del sistema (make ó make install)
-- [] Instalación ligera del sistema para Snap-ci (make light_install)
-- [] Actualización del sistema (make update)
-- [] Limpieza (make clean)
-- [] Realización Tests (make run_tests)
-- [] Ejecución del servidor Django(make run)
-- [] Documentación (make doc)
+- Instalación del sistema (make ó make install)
+- Instalación ligera del sistema para Snap-ci (make light_install)
+- Actualización del sistema (make update)
+- Limpieza (make clean)
+- Realización Tests (make run_tests)
+- Ejecución del servidor Django(make run)
+- Documentación (make doc)
 
 ## Test, Sistema de Pruebas.
 He creado varios test para verificar el funcionamiento de la aplicación web.
