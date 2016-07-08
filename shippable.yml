@@ -1,0 +1,14 @@
+language: python
+python:
+ - "2.7"
+# command to install dependencies
+install:
+ - sudo apt-get install make
+ - make install
+# command to run tests
+script:
+ - make run_test
+
+branches:
+  - only:
+    - master

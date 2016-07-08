@@ -4,7 +4,6 @@
 
 install:
 	sudo apt-get -y update
-	sudo apt-get -y upgrade
 	sudo apt-get install -y libmysqlclient-dev
 	sudo apt-get install -y python-dev
 	sudo apt-get install -y libjpeg8-dev
@@ -15,10 +14,14 @@ install:
 	sudo apt-get install -y libwebp-dev
 	sudo apt-get install -y python-pip
 	sudo pip install -r requirements.txt
-	sudo pip install --upgrade -r  requirements.txt
 
-light_Install:
+light_install:
 	sudo pip install -r requirements.txt
+
+update:
+	sudo apt-get -y update
+	sudo apt-get -y upgrade
+	sudo pip install --upgrade -r  requirements.txt
 
 clean:
 	rm -rf *~* && find . -name '*.pyc' -exec rm {} \;
