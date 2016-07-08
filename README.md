@@ -1,4 +1,9 @@
 # ImagesDB
+
+###Travis CI
+[![Build Status](https://travis-ci.org/Leontes/ImagesDB.svg?branch=master)](https://travis-ci.org/Leontes/ImagesDB)
+###Shippable
+[![Run Status](https://api.shippable.com/projects/577f57263be4f4faa56c2f6b/badge?branch=master)](https://app.shippable.com/projects/577f57263be4f4faa56c2f6b)
 ## José Ángel Segura Muros
 
 Proyecto para la asignatura de Cloud Computing del Máster en Ingeniería Informática
