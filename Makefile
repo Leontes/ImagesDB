@@ -12,6 +12,8 @@ install:
 	sudo apt-get install -y libfreetype6-dev
 	sudo apt-get install -y liblcms1-dev
 	sudo apt-get install -y libwebp-dev
+	sudo apt-get install -y libpq-dev
+	sudo apt-get install -y postgresql-server-dev-all
 	sudo apt-get install -y python-pip
 	pip install --upgrade pip
 	pip install -r requirements.txt
