@@ -64,7 +64,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'ImagesDB.urls'
+ROOT_URLCONF = 'ImagesDBApp.urls'
 
 TEMPLATES = [
     {
@@ -82,7 +82,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ImagesDB.wsgi.application'
+WSGI_APPLICATION = 'ImagesDBApp.wsgi.application'
 
 
 # Database
