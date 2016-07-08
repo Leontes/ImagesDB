@@ -1,4 +1,5 @@
 Django
+wheel
 argparse
 dj-database-url
 dj-static
