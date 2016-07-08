@@ -80,20 +80,20 @@ El código del Makefile es el siguiente:
 
 Las opciones que contiene el archivo son las siguientes:
 
-[] Instalación del sistema (make ó make install)
-[] Instalación ligera del sistema para Snap-ci (make light_install)
-[] Actualización del sistema (make update)
-[] Limpieza (make clean)
-[] Realización Tests (make run_tests)
-[] Ejecución del servidor Django(make run)
-[] Documentación (make doc)
+- [] Instalación del sistema (make ó make install)
+- [] Instalación ligera del sistema para Snap-ci (make light_install)
+- [] Actualización del sistema (make update)
+- [] Limpieza (make clean)
+- [] Realización Tests (make run_tests)
+- [] Ejecución del servidor Django(make run)
+- [] Documentación (make doc)
 
 ## Test, Sistema de Pruebas.
 He creado varios test para verificar el funcionamiento de la aplicación web.
 
 Los tests se dividen en dos bloques: Los tests de registro de usuarios y los tests de imagenes
 ###Tests de Usuarios
-[x] test_Usuarios, éste test crea un usuario y lo guarda.
+- [x] test_Usuarios, éste test crea un usuario y lo guarda.
 ```
     def test_Usuarios(self):
       user = Usuario(email = 'email', nombre = 'nombre',apellidos = 'apellidos')
@@ -105,7 +105,7 @@ Los tests se dividen en dos bloques: Los tests de registro de usuarios y los tes
       print("Se ha creado usuario, Test = OK")
 ```
 
-[x] test_cambiar_nombre, éste test cambia el nombre a un usuario existente.
+- [x] test_cambiar_nombre, éste test cambia el nombre a un usuario existente.
 ```
     def test_cambiar_nombre(self):
       user = Usuario(email = 'email', nombre = 'nombre',apellidos = 'apellidos')
@@ -120,7 +120,7 @@ Los tests se dividen en dos bloques: Los tests de registro de usuarios y los tes
       print("Se ha realizado el cambio de nombre, Test = OK")
 ```
 
-[x] test_cambiar_nombre, éste test cambia el mail a un usuario existente.
+- [x] test_cambiar_nombre, éste test cambia el mail a un usuario existente.
 ```
     def test_cambiar_email(self):
       user = Usuario(email = 'email', nombre = 'nombre',apellidos = 'apellidos')
@@ -136,7 +136,7 @@ Los tests se dividen en dos bloques: Los tests de registro de usuarios y los tes
 ```
 
 ###Tests de Imagenes
-[x] test_Imagenes, éste test crea una imagen y la guarda.
+- [x] test_Imagenes, éste test crea una imagen y la guarda.
 ```
     def test_Imagenes(self):
       user = Usuario(email = 'email', nombre = 'nombre', apellidos = 'apellidos')
@@ -151,7 +151,7 @@ Los tests se dividen en dos bloques: Los tests de registro de usuarios y los tes
       print("Se ha creado una imagen, Test = OK")
 ```
 
-[x] test_cambiar_url_imagen, éste test cambia la dirección web de una imagen.
+- [x] test_cambiar_url_imagen, éste test cambia la dirección web de una imagen.
 ```
     def test_cambiar_url_imagen(self):
       user = Usuario(email = 'email', nombre = 'nombre', apellidos = 'apellidos')
@@ -169,7 +169,7 @@ Los tests se dividen en dos bloques: Los tests de registro de usuarios y los tes
       print("Se ha modificado la url de una imagen, Test = OK")
 ```
 
-[x] test_cambiar_usuario_imagen, éste test cambia el autor de una imagen.
+- [x] test_cambiar_usuario_imagen, éste test cambia el autor de una imagen.
 ```
     def test_cambiar_usuario_imagen(self):
       user1 = Usuario(email = 'email1', nombre = 'nombre1', apellidos = 'apellidos1')
@@ -193,7 +193,7 @@ Los tests se dividen en dos bloques: Los tests de registro de usuarios y los tes
 ## Integración Continua
 Se ha desplegado el sistema en 3 plataformas distintas de Integración contínua
 
-[x] [Travis](https://travis-ci.org/) permite testear el código del proyecto. Para llevar a cabo esto hay que adjuntar en el directorio raíz de nuestro proyecto el fichero [**.travis.yml**](https://github.com/Leontes/ImagesDB/blob/master/.travis.yml).
+- [x] [Travis](https://travis-ci.org/) permite testear el código del proyecto. Para llevar a cabo esto hay que adjuntar en el directorio raíz de nuestro proyecto el fichero [**.travis.yml**](https://github.com/Leontes/ImagesDB/blob/master/.travis.yml).
 
 El contenido del fichero .travis.yml es el siguiente:
 ```
@@ -213,7 +213,7 @@ El contenido del fichero .travis.yml es el siguiente:
         - master
 ```
 
-[x] [Shippable](https://app.shippable.com/) permite testear el código del proyecto. Para llevar a cabo esto hay que adjuntar en el directorio raíz de nuestro proyecto el fichero [**shippable.yml**](https://github.com/Leontes/ImagesDB/blob/master/.shippable.yml).
+- [x] [Shippable](https://app.shippable.com/) permite testear el código del proyecto. Para llevar a cabo esto hay que adjuntar en el directorio raíz de nuestro proyecto el fichero [**shippable.yml**](https://github.com/Leontes/ImagesDB/blob/master/shippable.yml).
 
 El contenido del fichero shippable.yml es el siguiente:
 ```
@@ -233,14 +233,13 @@ El contenido del fichero shippable.yml es el siguiente:
         - master
 ```
 
-[x] [Snap-ci](https://snap-ci.com/) permite testear el código del proyecto. Para llevar a cabo esto hay que crear en la web de forma interactiva un pipeline con las ordenes que debe llevar a cabo la plataforma.
+- [x] [Snap-ci](https://snap-ci.com/) permite testear el código del proyecto. Para llevar a cabo esto hay que crear en la web de forma interactiva un pipeline con las ordenes que debe llevar a cabo la plataforma.
 
 Las ordenes de programados en la plaforma son las siguientes:
 ```
     make light_install
     make run_tests
 ```
-
 
 ## Documentación, **Pycco**
 Para generar la documentación del proyecto usaremos Pycco. La generación esta programada directamente en el Makefile como se ha mostrado previamente.
