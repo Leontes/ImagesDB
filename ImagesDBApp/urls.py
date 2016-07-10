@@ -3,15 +3,12 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
+from ImagesDBApp.views import *
 
 urlpatterns = [
     # Examples:
-    url(r'^$', 'ImagesDBApp.views.home', name='home'),
-    url(r'^base/$', 'ImagesDBApp.views.base', name='base'),
-    url(r'^sobre/$', 'ImagesDBApp.views.sobre', name='sobre'),
-    # url(r'^blog/', include('blog.urls')),
+    url(r'^$', ListarImagenes.as_view(), name='index'),
     url(r'^accounts/', include('registration.backends.simple.urls')),
-
     url(r'^admin/', include(admin.site.urls)),
 ]
 

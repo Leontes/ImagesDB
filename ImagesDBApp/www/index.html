@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block jumbotron %}
+<div class="jumbotron">
+<div class="container">
+	<div class="row">
+		<div class='col-sm-6'>
+			<h1>ImagesDB</h1>
+			<p class='lead '>Esta es una pequeña pagina web en la que los usuarios pueden subir imagenes para que las vean todos lo que entren a ella.</p>
+			<p>Proyecto para las asignatura de Cloud Computing del Máster en Ingeniería Informática de la ETSIIT, Granada.</p>
+			<p>
+				<a class="btn btn-lg btn-primary" href="https://github.com/Leontes/ImagesDB" role="button">
+				<span class="fa-stack fa-lg">
+	  			<!--<i class="fa fa-spinner fa-stack-2x fa-pulse"></i>-->
+	  			<i class="fa fa-github fa-stack-2x"></i>
+			</span> ReadMe GitHub &raquo;</a>
+{% endblock %}
+
+{% block content %}
+  <h2> Lista de imagenes </h2>
+  <ul>
+    {%for imagen in object_list %}
+      <img src={{ imagen.url_img }}>
+      <br>
+      <strong>Autor:</strong> {{imagen.usuario.nombre}} {{imagen.usuario.apellidos}}
+      <br><br><br>
+
+
+    {% endfor %}
+  </ul>
+  {% endblock %}
