@@ -89,7 +89,8 @@ WSGI_APPLICATION = 'ImagesDBApp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
+if in_heroku:
+    DATABASES = {'default' : dj_database_url.config()}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
