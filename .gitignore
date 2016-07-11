@@ -2,3 +2,5 @@
 *.#
 *.pyc
 docs*
+ImagesDBAPP/migration*
+db.ImagesDB

@@ -15,7 +15,7 @@ urlpatterns = [
     url(r'^borrarImagen/(?P<pk>\d+)/$', borrarImagen,name='borrarImagen'),
     url(r'^editImagenes/$', ListarUsuariosEdicion.as_view(),name='editUsuarios'),
     url(r'^borrarUsuario/(?P<pk>\d+)/$', borrarUsuario,name='borrarUsuario'),
-    url(r'^accounts/.', include('registration.backends.simple.urls')),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]
 
