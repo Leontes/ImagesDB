@@ -89,6 +89,10 @@ WSGI_APPLICATION = 'ImagesDBApp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+in_heroku = False
+if 'DATABASE_URL' in os.environ:
+    in_heroku = True
+
 if in_heroku:
     DATABASES = {'default' : dj_database_url.config()}
 DATABASES = {
