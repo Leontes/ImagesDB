@@ -22,6 +22,9 @@ install:
 
 light_install:
 	sudo pip install -r requirements.txt
+	python manage.py makemigrations ImagesDBApp
+	python manage.py migrate
+
 
 update:
 	sudo apt-get -y update
