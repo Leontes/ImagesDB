@@ -22,7 +22,7 @@ install:
 
 light_install:
 	pip install --upgrade pip
-	sudo pip install -r requirements.txt
+	pip install -r requirements.txt
 	python manage.py makemigrations ImagesDBApp
 	python manage.py migrate
 
