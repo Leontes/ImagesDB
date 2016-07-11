@@ -11,3 +11,4 @@ psycopg2
 static3
 wsgiref
 pycco
+django-finalware

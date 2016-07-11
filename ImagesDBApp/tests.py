@@ -46,7 +46,7 @@ class TestsImagenes(TestCase):
 		user = Usuario(email = 'email', nombre = 'nombre', apellidos = 'apellidos')
 		user.save()
 
-		img = Imagen(usuario = user, url_img  = 'www.servidordeimagenes/imagen.jpeg')
+		img = Imagen(usuario = user, nombreImg = "nombreImagen",url_img  = 'www.servidordeimagenes/imagen.jpeg')
 		img.save()
 
 		img = Imagen.objects.get(usuario = user)
@@ -59,7 +59,7 @@ class TestsImagenes(TestCase):
 		user = Usuario(email = 'email', nombre = 'nombre', apellidos = 'apellidos')
 		user.save()
 
-		img = Imagen(usuario = user, url_img  = 'www.servidordeimagenes/imagen.jpeg')
+		img = Imagen(usuario = user, nombreImg = "nombreImagen", url_img  = 'www.servidordeimagenes/imagen.jpeg')
 		img.save()
 
 		img.url_img = 'www.servidordeimagenes/imagen.png'
@@ -74,7 +74,7 @@ class TestsImagenes(TestCase):
 		user1 = Usuario(email = 'email1', nombre = 'nombre1', apellidos = 'apellidos1')
 		user1.save()
 
-		img = Imagen(usuario = user1, url_img  = 'www.servidordeimagenes/imagen.jpeg')
+		img = Imagen(usuario = user1, nombreImg = "nombreImagen", url_img  = 'www.servidordeimagenes/imagen.jpeg')
 		img.save()
 
 		user2 = Usuario(email = 'email2', nombre = 'nombre2', apellidos = 'apellidos2')

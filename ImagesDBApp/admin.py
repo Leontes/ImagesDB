@@ -1,14 +1,7 @@
+#admin.py
 from django.contrib import admin
+from django.contrib.auth.models import User
+from django.contrib.auth.admin import UserAdmin
+from .models import Imagen
 
-# Register your models here.
-from .forms import UsuarioForm
-from .models import Usuario, Imagen
-
-class UsuarioAdmin(admin.ModelAdmin):
-	list_display = ["__unicode__", "fecha_registro", "actualizado"]
-	#class Meta:
-	#	model = Registro
-	form = UsuarioForm
-
-admin.site.register(Usuario, UsuarioAdmin)
 admin.site.register(Imagen)

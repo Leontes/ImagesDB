@@ -17,6 +17,8 @@ install:
 	sudo apt-get install -y python-pip
 	pip install --upgrade pip
 	pip install -r requirements.txt
+	python manage.py makemigrations ImagesDBApp
+	python manage.py migrate
 
 light_install:
 	sudo pip install -r requirements.txt

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block jumbotron %}
+<div class="jumbotron">
+<div class="container">
+<h2> Añadir imagenes </h2>
+<form action="{% url 'insertarImagen' username=request.user.username %}" method="get">
+  <strong> Nombre de la imagen </strong> <input type="text" name="nombreImg">
+  <strong> Dirección de la imagen </strong> <input type="text" name="urlImg">
+  <input type="submit">
+</form>
+{% endblock %}
+
+{% block content %}
+  <h2> Edición de imagenes </h2>
+  <table class="table">
+  {% for imagen in object_list %}
+    <tr>
+      <td>{{ imagen.nombreImg }}</td>
+      <td>{{ imagen.url_img }}</td>
+      <td> <a href="{% url 'borrarImagen' pk=imagen.id %}"><button>Borrar</button></a></td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

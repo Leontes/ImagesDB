@@ -45,8 +45,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     #Third party apps
     'crispy_forms',
+    'finalware',
     #Registro
     'registration',
     #Mi aplicacion
@@ -155,3 +157,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+SITE_SUPERUSER_USERNAME = 'admin'
+SITE_SUPERUSER_EMAIL = 'admin@correofalso.com'
+SITE_SUPERUSER_PASSWORD = 'admin'
+SITE_SUPERUSER_ID = '1106'

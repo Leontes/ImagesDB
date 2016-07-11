@@ -1,19 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-class Usuario(models.Model):
-	email = models.EmailField()
-	nombre = models.CharField(blank=True, null=True, max_length = 25)
-	apellidos = models.CharField(blank=True, null=True, max_length = 50)
-	fecha_registro = models.DateTimeField(auto_now_add=True, auto_now=False)
-	actualizado = models.DateTimeField(auto_now_add=False, auto_now=True)
-
-	def __unicode__(self):
-		return self.nombre
+#models.py
 
 class Imagen(models.Model):
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    url_img = models.URLField()
+	nombreImg = models.CharField(blank=True, null=True, max_length = 25)
+	usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+	url_img = models.URLField()
 
-    def __unicode__(self):
-        return self.usuario.nombre
+	def __unicode__(self):
+		return u'%s %s %s' % (self.nombreImg, self.usuario, self.url_img)

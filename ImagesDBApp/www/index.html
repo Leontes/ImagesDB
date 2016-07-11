@@ -20,12 +20,11 @@
   <h2> Lista de imagenes </h2>
   <ul>
     {%for imagen in object_list %}
+		<h3> {{ imagen.nombreImg }} </h3>
       <img src={{ imagen.url_img }}>
       <br>
-      <strong>Autor:</strong> {{imagen.usuario.nombre}} {{imagen.usuario.apellidos}}
+      <strong>Autor:</strong> {{imagen.usuario.username}} {{imagen.usuario.email}}
       <br><br><br>
-
-
     {% endfor %}
   </ul>
   {% endblock %}

@@ -14,9 +14,9 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
           	{% if request.user.is_authenticated %}
-              <li><a href="{% url 'index' %}">Gestionar Imagenes</a></li>
+              <li><a href="{% url 'editImagenes' usuario=request.user.username %}">Gestionar Imagenes</a></li>
               {% if request.user.is_staff %}
-                <li><a href="{% url 'index' %}">Gestionar Usuarios</a></li>
+                <li><a href="{% url 'editUsuarios' %}">Gestionar Usuarios</a></li>
               {% endif %}
             {% endif %}
           </ul>

@@ -1,31 +1,5 @@
 from django import forms
-from .models import Usuario, Imagen
-
-class UsuarioForm(forms.ModelForm):
-	class Meta:
-		model = Usuario
-		fields = ['email', 'nombre','apellidos']
-
-
-	#Validaciones
-	def clean_email(self):
-		email = self.cleaned_data.get('email')
-		email_base, provider = email.split("@")
-		domain, extension = provider.split('.')
-		if not domain == "gmail":
-			raise forms.ValidationError("Debe utilizar una cuenta de Gmail")
-		if not extension == "com":
-			raise forms.ValidationError("Por favor, la extension debe ser .com")
-		return email
-
-	def clean_nombre(self):
-		nombre = self.cleaned_data.get('nombre')
-		return nombre
-
-	def clean_apellidos(self):
-		apellidos = self.cleaned_data.get('apellidos')
-		return apellidos
-
+from .models import Imagen
 
 class ImagenForm(forms.ModelForm):
 	class Meta:
