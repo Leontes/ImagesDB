@@ -6,8 +6,8 @@ install:
 	sudo apt-get -y update
 	sudo apt-get install -y libmysqlclient-dev
 	sudo apt-get install -y python-dev
-	sudo apt-get install -ypython-setuptools
-	sudo apt-get install -ybuild-essential
+	sudo apt-get install -y python-setuptools
+	sudo apt-get install -y build-essential
 	sudo apt-get install -y libjpeg8-dev
 	sudo apt-get install -y libtiff4-dev
 	sudo apt-get install -y zlib1g-dev
