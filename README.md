@@ -9,7 +9,7 @@ Heroku [![Heroku](https://www.herokucdn.com/deploy/button.png)](https://imagesdb
 Docker [![Docker](https://dl.dropboxusercontent.com/s/s2bk0bksp92rtuq/docker.png)](https://hub.docker.com/r/leontes/imagesdb/)
 
 
-[## José Ángel Segura Muros](https://github.com/Leontes)
+##[José Ángel Segura Muros](https://github.com/Leontes)
 
 Proyecto para la asignatura de Cloud Computing del Máster en Ingeniería Informática
 
