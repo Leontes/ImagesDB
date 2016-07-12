@@ -6,6 +6,10 @@ Licencia [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?maxAge=2592000)](htt
 Travis CI [![Build Status](https://travis-ci.org/Leontes/ImagesDB.svg?branch=master)](https://travis-ci.org/Leontes/ImagesDB)
 Shippable [![Run Status](https://api.shippable.com/projects/577f57263be4f4faa56c2f6b/badge?branch=master)](https://app.shippable.com/projects/577f57263be4f4faa56c2f6b)
 Snap-ci [![Build Status](https://snap-ci.com/Leontes/ImagesDB/branch/master/build_image)](https://snap-ci.com/Leontes/ImagesDB/branch/master)
+Heroku [![Heroku](https://www.herokucdn.com/deploy/button.png)](https://imagesdb-cc.herokuapp.com/)
+Docker [![Docker](https://dl.dropboxusercontent.com/s/s2bk0bksp92rtuq/docker.png)](https://hub.docker.com/r/leontes/imagesdb/)
+
+
 ## José Ángel Segura Muros
 
 Proyecto para la asignatura de Cloud Computing del Máster en Ingeniería Informática
@@ -15,20 +19,20 @@ Proyecto para la asignatura de Cloud Computing del Máster en Ingeniería Inform
 Este proyecto consistira en la creación de una web que permita a los usuarios que suban imagenes a la misma.
 
 La web tendra las siguientes funcionalidades:
-- [x]  Registro: Un usuario se registra en la aplicación, a través de usuario y contraseña.
-- [x]  Subida de imagenes: Una vez registrado y logeado el usuario podra subir imagenes.
-- [x]  Visualización de imagenes: Todas las imagenes subidas podran verse en la portada de la web.
-- [x]  Gestion de imagenes: Los usuarios podran gestionar sus imagenes, los administradores podran gestionar todas las imagenes de la web.
-- [x]  Gestion de usuarios: Los administradores podran gestionar a los usuarios, borrando o modificando la información de estos.
+- Registro: Un usuario se registra en la aplicación, a través de usuario y contraseña.
+- Subida de imagenes: Una vez registrado y logeado el usuario podra subir imagenes.
+- Visualización de imagenes: Todas las imagenes subidas podran verse en la portada de la web.
+- Gestion de imagenes: Los usuarios podran gestionar sus imagenes, los administradores podran gestionar todas las imagenes de la web.
+- Gestion de usuarios: Los administradores podran gestionar a los usuarios, borrando o modificando la información de estos.
 
 ## Infraestructura Virtual necesaria
-- [x]  Servidor de Base de Datos para la gestión de usuarios.
-- [x]  Servidor de Base de Datos para el contenido de la Web.
-- [x]  Servidor Web.
+- Servidor de Base de Datos para la gestión de usuarios.
+- Servidor de Base de Datos para el contenido de la Web.
+- Servidor Web.
 
 ## Trabajaremos con las siguientes tecnologias
-- [x]  Framework Django.
-- [x]  Bases de Datos Gestionada con MySqL
+- Framework Django.
+- Bases de Datos Gestionada con MySqL
 
 
 ##Hito 2
@@ -337,4 +341,46 @@ Para solucionar este problema se ha modificado el archivo settings.py para que d
                 'NAME': os.path.join(BASE_DIR, 'db.ImagesDB'),
             }
         }
+```
+
+
+##Hito 4
+##Docker
+Se ha preparado una imagen Docker con la aplicación lista para ejecutarse. La imagen puede encontrarse en [**Docker Hub**](https://hub.docker.com/r/leontes/imagesdb/) y se puede construir mediante el archivo [**Dockerfile**](https://github.com/Leontes/ImagesDB/blob/master/Dockerfile). La imagen esta diseñada para levantar el servidor Django automaticamente, por lo que solo es necesario un ```docker run leontes/imagesdb``` para que todo funcione.
+
+El contenido del archivo Dockerfile es el siguiente:
+
+```
+    # Sistema operativo
+    FROM ubuntu:14.04
+
+    # Autor
+    MAINTAINER José Ángel Segura Muros <shaljas@correo.ugr.es>
+
+
+    # Actualizar sistema base y prepararlo para la instalación de la aplicación
+    RUN apt-get -y update
+    RUN apt-get -y install sudo
+
+    # Instalacion
+    RUN sudo apt-get install -y git
+    RUN sudo apt-get install -y make
+    RUN git clone https://github.com/Leontes/ImagesDB.git
+
+    # Instalar la aplicación
+    WORKDIR ImagesDB
+    RUN make install
+
+    # Abrimos el puerto para Django
+    EXPOSE 8000
+
+    # Levantamos el servidor al inicio
+    CMD make run_docker
+```
+
+Ademśa debido a la asignación de direcciones IP del contenedor se ha tenido que incluir una pequeña regla nueva en el Makefile para el servidor arranque con una dirección valida en vez de con la dirección por defecto. Este añadido es el siguiente:
+
+```
+    run_docker:
+    		python manage.py runserver 0.0.0.0:8000
 ```
