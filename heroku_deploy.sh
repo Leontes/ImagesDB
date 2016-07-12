@@ -5,7 +5,7 @@ wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 heroku login
 
 heroku config:set DISABLE_COLLECTSTATIC=1
-heroku create
+heroku create ImagesDB
 
 git add .
 git commit -m "Despliegue heroku"
