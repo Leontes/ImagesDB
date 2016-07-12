@@ -10,9 +10,24 @@ Heroku [![Heroku](https://www.herokucdn.com/deploy/button.png)](https://imagesdb
 Docker [![Docker](https://dl.dropboxusercontent.com/s/s2bk0bksp92rtuq/docker.png)](https://hub.docker.com/r/leontes/imagesdb/)
 
 
-## José Ángel Segura Muros
+[## José Ángel Segura Muros](https://github.com/Leontes)
 
 Proyecto para la asignatura de Cloud Computing del Máster en Ingeniería Informática
+
+### Instalación
+```
+    git clone https://github.com/Leontes/ImagesDB.git
+    make install
+```
+
+### Ejecución
+```
+    make run
+```
+
+### Acceso
+La aplicación puede accederse desde la dirección [http://127.0.0.1:8000](http://127.0.0.1:8000)
+Para acceder al modo administación se tiene que entrar por [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) con usuario **admin** y contraseña **admin**
 
 ## Hito 1
 ## Descripción
