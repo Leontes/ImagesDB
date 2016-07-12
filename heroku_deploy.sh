@@ -6,6 +6,7 @@ heroku login
 
 heroku config:set DISABLE_COLLECTSTATIC=1
 heroku create ImagesDB
+heroku git:remote -a ImagesDB
 
 git add .
 git commit -m "Despliegue heroku"
