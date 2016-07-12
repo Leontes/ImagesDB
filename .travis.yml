@@ -1,11 +1,11 @@
 language: python
 python:
  - "2.7"
-# command to install dependencies
+# Instalamos las dependencias
 install:
  - sudo apt-get install make
  - make install
-# command to run tests
+# Lanzamos los tests
 script:
  - make run_tests
 

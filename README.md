@@ -1,6 +1,5 @@
 # ImagesDB
 
-##Badges
 Versión [![PythonVersion](https://img.shields.io/badge/python-2.7-blue.svg)](https://www.python.org/)
 Licencia [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?maxAge=2592000)](http://www.apache.org/licenses/#2.0)
 Travis CI [![Build Status](https://travis-ci.org/Leontes/ImagesDB.svg?branch=master)](https://travis-ci.org/Leontes/ImagesDB)
@@ -26,28 +25,29 @@ Proyecto para la asignatura de Cloud Computing del Máster en Ingeniería Inform
 ```
 
 ### Acceso
-La aplicación puede accederse desde la dirección [http://127.0.0.1:8000](http://127.0.0.1:8000)
-Para acceder al modo administación se tiene que entrar por [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) con usuario **admin** y contraseña **admin**
+La aplicación puede accederse desde la dirección [http://127.0.0.1:8000](http://127.0.0.1:8000).
+Para acceder al modo administración se tiene que entrar por [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) con usuario **admin** y contraseña **admin**.
+
 
 ## Hito 1
 ## Descripción
-Este proyecto consistira en la creación de una web que permita a los usuarios que suban imagenes a la misma.
+Este proyecto consistirá en la creación de una web que permita a los usuarios que suban imágenes a la misma.
 
-La web tendra las siguientes funcionalidades:
+La web tendrá las siguientes funcionalidades:
 - Registro: Un usuario se registra en la aplicación, a través de usuario y contraseña.
-- Subida de imagenes: Una vez registrado y logeado el usuario podra subir imagenes.
-- Visualización de imagenes: Todas las imagenes subidas podran verse en la portada de la web.
-- Gestion de imagenes: Los usuarios podran gestionar sus imagenes, los administradores podran gestionar todas las imagenes de la web.
-- Gestion de usuarios: Los administradores podran gestionar a los usuarios, borrando o modificando la información de estos.
+- Subida de imágenes: Una vez registrado y logeado el usuario podrá subir imágenes.
+- Visualización de imágenes: Todas las imágenes subidas podrán verse en la portada de la web.
+- Gestión de imágenes: Los usuarios podrán gestionar sus imágenes, los administradores podrán gestionar todas las imágenes de la web.
+- Gestión de usuarios: Los administradores podrán gestionar a los usuarios, borrando o modificando la información de estos.
 
 ## Infraestructura Virtual necesaria
 - Servidor de Base de Datos para la gestión de usuarios.
 - Servidor de Base de Datos para el contenido de la Web.
 - Servidor Web.
 
-## Trabajaremos con las siguientes tecnologias
+## Trabajaremos con las siguientes tecnologías
 - Framework Django.
-- Bases de Datos Gestionada con MySqL
+- Bases de Datos Gestionada con MySqL.
 
 
 ##Hito 2
@@ -101,19 +101,19 @@ El código del Makefile es el siguiente:
 
 Las opciones que contiene el archivo son las siguientes:
 
-- Instalación del sistema (make ó make install)
-- Instalación ligera del sistema para Snap-ci (make light_install)
-- Actualización del sistema (make update)
-- Limpieza (make clean)
-- Realización Tests (make run_tests)
-- Ejecución del servidor Django(make run)
-- Documentación (make doc)
+- Instalación del sistema (make o make install).
+- Instalación ligera del sistema para Snap-ci (make light_install).
+- Actualización del sistema (make update).
+- Limpieza (make clean).
+- Realización Test (make run_tests).
+- Ejecución del servidor Django (make run).
+- Documentación (make doc).
 
 ## Test, Sistema de Pruebas.
 He creado varios test para verificar el funcionamiento de la aplicación web.
 
-Los tests se dividen en dos bloques: Los tests de registro de usuarios y los tests de imagenes
-###Tests de Usuarios
+Los test se dividen en dos bloques: Los test de registro de usuarios y los test de imágenes.
+###Test de Usuarios
 - [x] test_Usuarios, éste test crea un usuario y lo guarda.
 ```
   def test_Usuarios(self):
@@ -156,7 +156,7 @@ Los tests se dividen en dos bloques: Los tests de registro de usuarios y los tes
       print("Se ha realizado el cambio de email, Test = OK")
 ```
 
-###Tests de Imagenes
+###Test de Imágenes
 - [x] test_Imagenes, éste test crea una imagen y la guarda.
 ```
     def test_Imagenes(self):
@@ -230,7 +230,7 @@ Los tests se dividen en dos bloques: Los tests de registro de usuarios y los tes
 ```
 
 ## Integración Continua
-Se ha desplegado el sistema en 3 plataformas distintas de Integración contínua
+Se ha desplegado el sistema en 3 plataformas distintas de Integración continua.
 
 - [x] [Travis](https://travis-ci.org/) permite testear el código del proyecto. Para llevar a cabo esto hay que adjuntar en el directorio raíz de nuestro proyecto el fichero [**.travis.yml**](https://github.com/Leontes/ImagesDB/blob/master/.travis.yml).
 
@@ -239,11 +239,11 @@ El contenido del fichero .travis.yml es el siguiente:
     language: python
     python:
      - "2.7"
-    # command to install dependencies
+    # Instalamos las dependencias
     install:
      - sudo apt-get install make
      - make install
-    # command to run tests
+    # Lanzamos los test
     script:
      - make run_tests
 
@@ -259,11 +259,11 @@ El contenido del fichero shippable.yml es el siguiente:
     language: python
     python:
      - "2.7"
-    # command to install dependencies
+    # Instalamos las dependencias
     install:
      - sudo apt-get install make
      - make install
-    # command to run tests
+    # Lanzamos los test
     script:
      - make run_tests
 
@@ -274,7 +274,7 @@ El contenido del fichero shippable.yml es el siguiente:
 
 - [x] [Snap-ci](https://snap-ci.com/) permite testear el código del proyecto. Para llevar a cabo esto hay que crear en la web de forma interactiva un pipeline con las ordenes que debe llevar a cabo la plataforma.
 
-Las ordenes de programadas en la plaforma son las siguientes:
+Las órdenes de programadas en la plataforma son las siguientes:
 ```
     yum install postgresql-devel
     make light_install
@@ -282,15 +282,15 @@ Las ordenes de programadas en la plaforma son las siguientes:
 ```
 
 ## Documentación, **Pycco**
-Para generar la documentación del proyecto usaremos Pycco. La generación esta programada directamente en el Makefile como se ha mostrado previamente.
+Para generar la documentación del proyecto usaremos Pycco. La generación está programada directamente en el Makefile como se ha mostrado previamente.
 
 
 ##Hito 3
 ## Despliegue **Heroku**
 
-El despligue se ha realizado sobre la plataforma Heroku. La aplicación puede encontrarse ya completamente funcional en la siguiente [**dirección**](https://imagesdb-cc.herokuapp.com/).
+El despliegue se ha realizado sobre la plataforma Heroku. La aplicación puede encontrarse ya completamente funcional en la siguiente [**dirección**](https://imagesdb-cc.herokuapp.com/).
 
-###Despligue automático de la app
+###Despliegue automático de la app
 Se ha creado un script que crea la aplicación, la configura y puebla la base de datos del Dyno. El script puede encontrarse en [heroku_deploy.sh](https://github.com/Leontes/ImagesDB/blob/master/heroku_deploy.sh) y su contenido es el siguiente:
 
 ```
@@ -302,12 +302,12 @@ Se ha creado un script que crea la aplicación, la configura y puebla la base de
     #Nos logeamos en nuestra cuenta de Heroku
     heroku login
 
-    #Creamos la app, linkamos el repostorio de Git con ella y la configuramos
+    #Creamos la app, linkamos el repositorio de Git con ella y la configuramos
     heroku create imagesdb-cc
     heroku git:remote -a imagesdb-cc
     heroku config:set DISABLE_COLLECTSTATIC=1
 
-    #Hacemos un push del repostorio
+    #Hacemos un push del repositorio
     git add .
     git commit -m "Despliegue heroku"
     git push heroku master
@@ -321,32 +321,23 @@ Se ha creado un script que crea la aplicación, la configura y puebla la base de
 
 ```
 
-Ademas es necesario un pequeño archivo [Procfile](https://github.com/Leontes/ImagesDB/blob/master/Procfile) para indicar el tipo de aplicación y los comandos necesarios para lanzarla.
+Además es necesario un pequeño archivo [Procfile](https://github.com/Leontes/ImagesDB/blob/master/Procfile) para indicar el tipo de aplicación y los comandos necesarios para lanzarla.
 
 ```
     web: gunicorn ImagesDBApp.wsgi --log-file -
 ```
 
-Además entrando en la configuración del Dyno en Heroku podemos activar los despligues automaticos cuando se hace un push en el repositorio de la manera que se muestra a continuación.
+Además entrando en la configuración del Dyno en Heroku podemos activar los despliegues automáticos cuando se hace un push en el repositorio de la manera que se muestra a continuación.
 
 ![Git](https://github.com/Leontes/ImagesDB/blob/master/readme-docs/git.png)
 
 #Cambios en settings.py
-Settings.py es el archivo que configura todo el proyecto Django. Debido a que hsata el momento se habia estado trabajando en local la base de datos configurada era un fichero guardado en disco. Esto a la hora de desplegarlo en Heroku no servía puesto que en este la BD estaba definida como un add-on y hay que acceder a ella a traves de una url.
+Settings.py es el archivo que configura todo el proyecto Django. Debido a que hasta el momento se había estado trabajando en local la base de datos configurada era un fichero guardado en disco. Esto a la hora de desplegarlo en Heroku no servía puesto que en este la BD estaba definida como un add-on y hay que acceder a ella a través de una url.
 
 Para solucionar este problema se ha modificado el archivo settings.py para que detecte si se está trabajando en local o en heroku para autodefinir la BD que debe usar. Los cambios son los siguientes:
 
 ```
     import dj_database_url
-    if in_heroku:
-        DATABASES = {'default' : dj_database_url.config()}
-    else:
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': os.path.join(BASE_DIR, 'db.ImagesDB'),
-            }
-        }import dj_database_url
     if in_heroku:
         DATABASES = {'default' : dj_database_url.config()}
     else:
@@ -361,7 +352,7 @@ Para solucionar este problema se ha modificado el archivo settings.py para que d
 
 ##Hito 4
 ##Docker
-Se ha preparado una imagen Docker con la aplicación lista para ejecutarse. La imagen puede encontrarse en [**Docker Hub**](https://hub.docker.com/r/leontes/imagesdb/) y se puede construir mediante el archivo [**Dockerfile**](https://github.com/Leontes/ImagesDB/blob/master/Dockerfile). La imagen esta diseñada para levantar el servidor Django automaticamente, por lo que solo es necesario un ```docker run leontes/imagesdb``` para que todo funcione.
+Se ha preparado una imagen Docker con la aplicación lista para ejecutarse. La imagen puede encontrarse en [**Docker Hub**](https://hub.docker.com/r/leontes/imagesdb/) y se puede construir mediante el archivo [**Dockerfile**](https://github.com/Leontes/ImagesDB/blob/master/Dockerfile). La imagen esta diseñada para levantar el servidor Django automáticamente, por lo que solo es necesario un ```docker run leontes/imagesdb``` para que todo funcione.
 
 El contenido del archivo Dockerfile es el siguiente:
 
@@ -377,7 +368,7 @@ El contenido del archivo Dockerfile es el siguiente:
     RUN apt-get -y update
     RUN apt-get -y install sudo
 
-    # Instalacion
+    # Instalación
     RUN sudo apt-get install -y git
     RUN sudo apt-get install -y make
     RUN git clone https://github.com/Leontes/ImagesDB.git
@@ -393,7 +384,7 @@ El contenido del archivo Dockerfile es el siguiente:
     CMD make run_docker
 ```
 
-Ademśa debido a la asignación de direcciones IP del contenedor se ha tenido que incluir una pequeña regla nueva en el Makefile para el servidor arranque con una dirección valida en vez de con la dirección por defecto. Este añadido es el siguiente:
+Además debido a la asignación de direcciones IP del contenedor se ha tenido que incluir una pequeña regla nueva en el Makefile para el servidor arranque con una dirección valida en vez de con la dirección por defecto. Este añadido es el siguiente:
 
 ```
     run_docker:
