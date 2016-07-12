@@ -331,7 +331,7 @@ Además entrando en la configuración del Dyno en Heroku podemos activar los des
 
 ![Git](https://github.com/Leontes/ImagesDB/blob/master/readme-docs/git.png)
 
-#Cambios en settings.py
+##Cambios en settings.py
 Settings.py es el archivo que configura todo el proyecto Django. Debido a que hasta el momento se había estado trabajando en local la base de datos configurada era un fichero guardado en disco. Esto a la hora de desplegarlo en Heroku no servía puesto que en este la BD estaba definida como un add-on y hay que acceder a ella a través de una url.
 
 Para solucionar este problema se ha modificado el archivo settings.py para que detecte si se está trabajando en local o en heroku para autodefinir la BD que debe usar. Los cambios son los siguientes:
