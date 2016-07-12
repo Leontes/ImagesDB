@@ -253,7 +253,7 @@ El contenido del fichero shippable.yml es el siguiente:
 
 - [x] [Snap-ci](https://snap-ci.com/) permite testear el código del proyecto. Para llevar a cabo esto hay que crear en la web de forma interactiva un pipeline con las ordenes que debe llevar a cabo la plataforma.
 
-Las ordenes de programados en la plaforma son las siguientes:
+Las ordenes de programadas en la plaforma son las siguientes:
 ```
     yum install postgresql-devel
     make light_install
@@ -262,3 +262,32 @@ Las ordenes de programados en la plaforma son las siguientes:
 
 ## Documentación, **Pycco**
 Para generar la documentación del proyecto usaremos Pycco. La generación esta programada directamente en el Makefile como se ha mostrado previamente.
+
+
+
+
+Procfile
+
+script de Heroku y configuracion del repositorio
+
+Cambios en seetings.py
+
+import dj_database_url
+if in_heroku:
+    DATABASES = {'default' : dj_database_url.config()}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.ImagesDB'),
+        }
+    }import dj_database_url
+if in_heroku:
+    DATABASES = {'default' : dj_database_url.config()}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.ImagesDB'),
+        }
+    }

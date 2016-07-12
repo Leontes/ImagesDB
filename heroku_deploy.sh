@@ -12,4 +12,5 @@ git commit -m "Despliegue heroku"
 git push heroku master
 
 heroku ps:scale web=1
+heroku run make light_install
 heroku open
