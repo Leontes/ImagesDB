@@ -6,6 +6,8 @@ install:
 	sudo apt-get -y update
 	sudo apt-get install -y libmysqlclient-dev
 	sudo apt-get install -y python-dev
+	sudo apt-get install -ypython-setuptools
+	sudo apt-get install -ybuild-essential
 	sudo apt-get install -y libjpeg8-dev
 	sudo apt-get install -y libtiff4-dev
 	sudo apt-get install -y zlib1g-dev
@@ -14,7 +16,7 @@ install:
 	sudo apt-get install -y libwebp-dev
 	sudo apt-get install -y libpq-dev
 	sudo apt-get install -y postgresql-server-dev-all
-	sudo apt-get install -y python-pip
+	sudo easy_install pip
 	pip install --upgrade pip
 	pip install -r requirements.txt
 	python manage.py makemigrations ImagesDBApp
@@ -41,6 +43,10 @@ run_tests:
 
 run:
 	python manage.py runserver
+
+run_docker:
+		python manage.py runserver 0.0.0.0.8000
+
 
 doc:
 	pycco *.py
