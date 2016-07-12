@@ -1,5 +1,4 @@
 # ImagesDB
-
 Versión [![PythonVersion](https://img.shields.io/badge/python-2.7-blue.svg)](https://www.python.org/)
 Licencia [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?maxAge=2592000)](http://www.apache.org/licenses/#2.0)
 Travis CI [![Build Status](https://travis-ci.org/Leontes/ImagesDB.svg?branch=master)](https://travis-ci.org/Leontes/ImagesDB)
@@ -10,7 +9,6 @@ Docker [![Docker](https://dl.dropboxusercontent.com/s/s2bk0bksp92rtuq/docker.png
 
 
 ##[José Ángel Segura Muros](https://github.com/Leontes)
-
 Proyecto para la asignatura de Cloud Computing del Máster en Ingeniería Informática
 
 ### Instalación
@@ -110,9 +108,8 @@ Las opciones que contiene el archivo son las siguientes:
 - Documentación (make doc).
 
 ## Test, Sistema de Pruebas.
-He creado varios test para verificar el funcionamiento de la aplicación web.
+He creado varios test para verificar el funcionamiento de la aplicación web. Los test se dividen en dos bloques: Los test de registro de usuarios y los test de imágenes.
 
-Los test se dividen en dos bloques: Los test de registro de usuarios y los test de imágenes.
 ###Test de Usuarios
 - [x] test_Usuarios, éste test crea un usuario y lo guarda.
 ```
@@ -287,7 +284,6 @@ Para generar la documentación del proyecto usaremos Pycco. La generación está
 
 ##Hito 3
 ## Despliegue **Heroku**
-
 El despliegue se ha realizado sobre la plataforma Heroku. La aplicación puede encontrarse ya completamente funcional en la siguiente [**dirección**](https://imagesdb-cc.herokuapp.com/).
 
 ###Despliegue automático de la app
@@ -384,6 +380,7 @@ El contenido del archivo Dockerfile es el siguiente:
     CMD make run_docker
 ```
 
+##Cambios en Makefile
 Además debido a la asignación de direcciones IP del contenedor se ha tenido que incluir una pequeña regla nueva en el Makefile para el servidor arranque con una dirección valida en vez de con la dirección por defecto. Este añadido es el siguiente:
 
 ```
