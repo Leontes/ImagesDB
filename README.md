@@ -1,6 +1,8 @@
 # ImagesDB
 
 ##Badges
+Versión [![PythonVersion](https://img.shields.io/badge/python-2.7-blue.svg)](https://www.python.org/)
+Licencia [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?maxAge=2592000)](http://www.apache.org/licenses/#2.0)
 Travis CI [![Build Status](https://travis-ci.org/Leontes/ImagesDB.svg?branch=master)](https://travis-ci.org/Leontes/ImagesDB)
 Shippable [![Run Status](https://api.shippable.com/projects/577f57263be4f4faa56c2f6b/badge?branch=master)](https://app.shippable.com/projects/577f57263be4f4faa56c2f6b)
 Snap-ci [![Build Status](https://snap-ci.com/Leontes/ImagesDB/branch/master/build_image)](https://snap-ci.com/Leontes/ImagesDB/branch/master)
@@ -264,30 +266,75 @@ Las ordenes de programadas en la plaforma son las siguientes:
 Para generar la documentación del proyecto usaremos Pycco. La generación esta programada directamente en el Makefile como se ha mostrado previamente.
 
 
+##Hito 3
+## Despliegue **Heroku**
 
+El despligue se ha realizado sobre la plataforma Heroku. La aplicación puede encontrarse ya completamente funcional en la siguiente [**dirección**](https://imagesdb-cc.herokuapp.com/).
 
-Procfile
+###Despligue automático de la app
+Se ha creado un script que crea la aplicación, la configura y puebla la base de datos del Dyno. El script puede encontrarse en [heroku_deploy.sh](https://github.com/Leontes/ImagesDB/blob/master/heroku_deploy.sh) y su contenido es el siguiente:
 
-script de Heroku y configuracion del repositorio
+```
+    #!/bin/bash
 
-Cambios en seetings.py
+    #Nos bajamos el toolbelt
+    wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
-import dj_database_url
-if in_heroku:
-    DATABASES = {'default' : dj_database_url.config()}
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.ImagesDB'),
+    #Nos logeamos en nuestra cuenta de Heroku
+    heroku login
+
+    #Creamos la app, linkamos el repostorio de Git con ella y la configuramos
+    heroku create imagesdb-cc
+    heroku git:remote -a imagesdb-cc
+    heroku config:set DISABLE_COLLECTSTATIC=1
+
+    #Hacemos un push del repostorio
+    git add .
+    git commit -m "Despliegue heroku"
+    git push heroku master
+
+    #Preparamos la aplicación para su funcionamiento(asignamos workers, creamos tablas en la DB, etc..)
+    heroku ps:scale web=1
+    heroku run make light_install
+
+    #Lanzamos la aplicación
+    heroku open
+
+```
+
+Ademas es necesario un pequeño archivo [Procfile](https://github.com/Leontes/ImagesDB/blob/master/Procfile) para indicar el tipo de aplicación y los comandos necesarios para lanzarla.
+
+```
+    web: gunicorn ImagesDBApp.wsgi --log-file -
+```
+
+Además entrando en la configuración del Dyno en Heroku podemos activar los despligues automaticos cuando se hace un push en el repositorio de la manera que se muestra a continuación.
+
+![Git](https://www.dropbox.com/s/1fihrqyymgxoft7/git.png?dl=0)
+
+#Cambios en settings.py
+Settings.py es el archivo que configura todo el proyecto Django. Debido a que hsata el momento se habia estado trabajando en local la base de datos configurada era un fichero guardado en disco. Esto a la hora de desplegarlo en Heroku no servía puesto que en este la BD estaba definida como un add-on y hay que acceder a ella a traves de una url.
+
+Para solucionar este problema se ha modificado el archivo settings.py para que detecte si se está trabajando en local o en heroku para autodefinir la BD que debe usar. Los cambios son los siguientes:
+
+```
+    import dj_database_url
+    if in_heroku:
+        DATABASES = {'default' : dj_database_url.config()}
+    else:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': os.path.join(BASE_DIR, 'db.ImagesDB'),
+            }
+        }import dj_database_url
+    if in_heroku:
+        DATABASES = {'default' : dj_database_url.config()}
+    else:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': os.path.join(BASE_DIR, 'db.ImagesDB'),
+            }
         }
-    }import dj_database_url
-if in_heroku:
-    DATABASES = {'default' : dj_database_url.config()}
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.ImagesDB'),
-        }
-    }
+```
