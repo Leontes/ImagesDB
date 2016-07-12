@@ -310,7 +310,7 @@ Ademas es necesario un pequeño archivo [Procfile](https://github.com/Leontes/Im
 
 Además entrando en la configuración del Dyno en Heroku podemos activar los despligues automaticos cuando se hace un push en el repositorio de la manera que se muestra a continuación.
 
-![Git](https://www.dropbox.com/s/1fihrqyymgxoft7/git.png)
+![Git](https://github.com/Leontes/ImagesDB/blob/master/readme-docs/git.png)
 
 #Cambios en settings.py
 Settings.py es el archivo que configura todo el proyecto Django. Debido a que hsata el momento se habia estado trabajando en local la base de datos configurada era un fichero guardado en disco. Esto a la hora de desplegarlo en Heroku no servía puesto que en este la BD estaba definida como un add-on y hay que acceder a ella a traves de una url.
